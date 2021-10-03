@@ -5,24 +5,49 @@ export const Cart = () => {
 
     const {carrito} = useContext (ItemContext);
     const totalFinal = [];
+    const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+    guardarLocal("listaProductos", JSON.stringify(totalFinal));
+    
     return (
-        <div>
-            <h1>Detalle</h1>
-            <ul>
+        <div className="text-center">
+            <h1 className="my-4 fst-italic fw-light text-decoration-underline">Detalle de su Carrito</h1>
+            <table className="table ">
+            <thead>
+                                <tr>
+                                    <th scope="col">Id Producto</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio Unitario</th>
+                                    <th scope="col">Precio Final</th>
+                                </tr>
+                            </thead>
                 {
                     carrito.map(item=> {
 
                         const total = item.price * item.cantidad
                         totalFinal.push(total);
                         return(
-                        <li>
-                            {item.description} Cantidad:  {item.cantidad} Precio: ${item.price} ${total}
-                            </li>
+                            <>
+                            <tbody>
+                            <tr>
+                                <th scope="row">{item.id}</th>
+                                <td>{item.description}</td>
+                                <td>{item.cantidad}{item.key}</td>
+                                <td>${item.price}</td>
+                                <td>${total}</td>
+                            </tr>
+                                </tbody>
+                                </>
                         );
                             })
                 }
-            </ul>
-            <h3>Total: ${totalFinal.reduce((prev,next) => prev + next)}</h3>
+            </table>
+            <h3 className="text-end me-5 fs-1">Total: ${totalFinal.reduce((prev,next) => prev + next)}</h3>
         </div>
     )
+
 }
+
+
+
+
