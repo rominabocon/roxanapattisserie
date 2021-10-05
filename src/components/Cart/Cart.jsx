@@ -5,8 +5,7 @@ export const Cart = () => {
 
     const {carrito} = useContext (ItemContext);
     const totalFinal = [];
-    const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-    guardarLocal("listaProductos", JSON.stringify(totalFinal));
+
     
     return (
         <div className="text-center">
@@ -42,7 +41,7 @@ export const Cart = () => {
                             })
                 }
             </table>
-            <h3 className="text-end me-5 fs-1">Total: ${totalFinal.reduce((prev,next) => prev + next)}</h3>
+            <h3 className="text-end me-5 fs-1">Total: ${totalFinal.reduce((prev,next) => prev + next,0)}</h3>
         </div>
     )
 
