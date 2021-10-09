@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { ItemContext } from '../../context/ItemContext'
 
 export const Cart = () => {
@@ -20,7 +21,9 @@ export const Cart = () => {
                                     <th scope="col">Precio Final</th>
                                 </tr>
                             </thead>
-                {
+                {carrito.length === 0 ? (
+                                        <p>No hay nada por aquí...</p>
+                                        ) : (
                     carrito.map(item=> {
 
                         const total = item.price * item.cantidad
@@ -39,9 +42,10 @@ export const Cart = () => {
                                 </>
                         );
                             })
-                }
+                                        )}
             </table>
             <h3 className="text-end me-5 fs-1">Total: ${totalFinal.reduce((prev,next) => prev + next,0)}</h3>
+            <Link to={"/"} className="btn btn-primary fs-5">Volver al Inicio</Link>
         </div>
     )
 
