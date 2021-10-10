@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { ItemContext } from '../../context/ItemContext'
 
+
 export const Cart = () => {
 
     const {carrito} = useContext (ItemContext);
     const totalFinal = [];
-
     
     return (
         <div className="text-center">
@@ -22,10 +22,9 @@ export const Cart = () => {
                                 </tr>
                             </thead>
                 {carrito.length === 0 ? (
-                                        <p>No hay nada por aquí...</p>
+                                        <p className="fs-5">No hay nada por aquí...</p>
                                         ) : (
-                    carrito.map(item=> {
-
+                    carrito.map(item=> { 
                         const total = item.price * item.cantidad
                         totalFinal.push(total);
                         return(
@@ -39,12 +38,12 @@ export const Cart = () => {
                                 <td>${total}</td>
                             </tr>
                                 </tbody>
-                                </>
+                                </>                                
                         );
                             })
                                         )}
             </table>
-            <h3 className="text-end me-5 fs-1">Total: ${totalFinal.reduce((prev,next) => prev + next,0)}</h3>
+            <h3 className="text-end me-5 fs-1">Total: ${totalFinal.reduce((prev,next) => prev + next,0)}</h3> 
             <Link to={"/"} className="btn btn-primary fs-5">Volver al Inicio</Link>
         </div>
     )

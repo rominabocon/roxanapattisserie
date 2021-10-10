@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import { useParams } from 'react-router'
 import { Link } from "react-router-dom";
+import { CartContext } from '../../context/CartContex';
 import { ItemContext } from '../../context/ItemContext';
 import { getElementbyId } from '../../utils/getElementById';
 import {ItemCount} from "../ItemCount/ItemCount"
@@ -19,12 +20,21 @@ export const ItemDetail = () => {
     }
 
     const {setCarrito} = useContext (ItemContext);
+    const {setNumeroCarrito} = useContext (CartContext);
+
 
     const addItem = (cantidad) => {
         const itemConCantidad = {...item, cantidad};
         setCarrito (prev => {
             return [...prev, itemConCantidad]
         });
+    }
+
+    const addWidget = (cantidad) => {
+        const sumandoWidget = {...item, cantidad};
+        setNumeroCarrito (prev => {
+            return [...prev, sumandoWidget]
+        })
     }
 
     return (
@@ -41,9 +51,11 @@ export const ItemDetail = () => {
             <p className="fst-italic fs-3"> {item.sabor}</p>
             <p  className="fs-1 fw-bolder">${item.price}</p>
             </div>
-            <ItemCount onAdd={addItem}/>
-            <div></div>
+            <ItemCount onAdd={addItem, addWidget}/>
+            <div className="d-flex justify-content-evenly mb-3">
             <Link className="btn btn-dark mt-3" to={path}>Volver</Link>
+            <Link className="btn btn-secondary mt-3" to={"/cart"}>Terminar Compra</Link>
+            </div>
         </div>
     )
 }
