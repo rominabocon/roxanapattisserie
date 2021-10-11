@@ -13,7 +13,7 @@ export const Cart = () => {
     }
 
     const handleAdd = (id) => {
-        let sumando = carrito.map(item => item.id == id ? {...item, cantidad:item.cantidad+1}: item);
+        let sumando = carrito.map(item => item.id === id ? {...item, cantidad:item.cantidad+1}: item);
         setCarrito(sumando);
     }
     

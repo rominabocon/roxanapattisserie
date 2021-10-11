@@ -18,15 +18,22 @@ export const ItemDetail = () => {
         path='/Tortas'
     }
 
-    const {setCarrito} = useContext (ItemContext);
+    const {carrito, setCarrito} = useContext (ItemContext);
 
 
 
     const addItem = (cantidad) => {
         const itemConCantidad = {...item, cantidad};
-        setCarrito (prev => {
-            return [...prev, itemConCantidad]
-        });
+        let cart = [];
+
+        let existCart = carrito.find (item=>item.id == id);
+        if(existCart) {
+            cart = carrito.map((item) => item.id == id ? {...item, cantidad: item.cantidad + cantidad} : item);
+        }
+        else {
+            cart = [...carrito, itemConCantidad];
+        }
+        setCarrito (cart);
     }
 
 

@@ -8,15 +8,6 @@ export const data = [
         price:1500,
         sabor:"vainilla",
     },
-    {   
-        name: "Cupcake 2",
-        img: "/media/budiningles.jpg",
-        id:2,
-        description:"Torta",
-        stock: true,
-        price: 700,
-        sabor: "vainilla",
-    },
     {
         name: "Cupcake 3",
         img: "/media/carrotcake.jpg",
@@ -65,10 +56,19 @@ export const data = [
     {   
         name: "Cupcake 8",
         img: "/media/vainillacupcake.jpg",
-        id:7,
+        id:8,
         description:"Cupcake",
         stock:true,
         price:1700,
         sabor:"vainilla",
+    },
+    {   
+        name: "Cupcake 10",
+        img: "/media/unicupcake.jpg",
+        id:10,
+        description:"Cupcake",
+        stock:true,
+        price:2500,
+        sabor:"chocolate",
     },
 ]
