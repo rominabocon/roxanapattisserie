@@ -11,16 +11,35 @@ export const Cart = () => {
     const handleDelete = (id) => {
         setCarrito(carrito.filter(item=> item.id !== id));
     }
+
+    const handleAdd = (id) => {
+        let sumando = carrito.map(item => item.id == id ? {...item, cantidad:item.cantidad+1}: item);
+        setCarrito(sumando);
+    }
     
+    const handleSubs = (id) => {
+        const cart = [];
+        carrito.map (item => {
+            if(item.id === id && item.cantidad > 1) {
+                cart.push({...item, cantidad:item.cantidad - 1});
+            }
+            else if (item.id !== id){
+                cart.push(item);
+            }
+        });
+        setCarrito(cart)
+    }
+
     return (
         <div className="text-center">
             <h1 className="my-4 fst-italic fw-light text-decoration-underline">Detalle de su Carrito</h1>
             <table className="table ">
             <thead>
                                 <tr>
-                                    <th scope="col">Id Producto</th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Producto</th>
                                     <th scope="col">Cantidad</th>
+                                    <th scope="col">-/+</th>
                                     <th scope="col">Precio Unitario</th>
                                     <th scope="col">Precio Final</th>
                                     <th scope="col">Eliminar</th>
@@ -39,6 +58,10 @@ export const Cart = () => {
                                 <th scope="row">{item.id}</th>
                                 <td>{item.description}</td>
                                 <td>{item.cantidad}{item.key}</td>
+                                <td>
+                                    <button onClick={() => handleSubs(item.id)} className="btn btn-danger m-1">-</button>
+                                    <button onClick={() => handleAdd(item.id)} className="btn btn-success">+</button>
+                                </td>
                                 <td>${item.price}</td>
                                 <td>${total}</td>
                                 <td onClick={() => handleDelete(item.id)}>
