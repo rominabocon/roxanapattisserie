@@ -1,10 +1,14 @@
-import React from 'react'
+
 import { getCategoria } from '../../utils/getCategorias.jsx';
 import {Card} from "../Card/Card.jsx"
+
 import "./ItemList.css"
 
 export const ItemList = ({description}) => {
     const productos = getCategoria(description);
+
+
+
     return (
         <div className="item-container">
             

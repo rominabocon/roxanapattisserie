@@ -9,7 +9,7 @@ export const data = [
         sabor:"vainilla",
     },
     {
-        name: "Cupcake 3",
+        name: "Torta 3",
         img: "/media/carrotcake.jpg",
         id:3,
         description:"Torta",
@@ -18,7 +18,7 @@ export const data = [
         sabor:"vainilla",
     },
     {   
-        name: "Cupcake 4",
+        name: "Torta 4",
         img: "/media/chocolatecake.jpg",
         id:4,
         description:"Torta",
@@ -36,7 +36,7 @@ export const data = [
         sabor:"chocolate",
     },
     {   
-        name: "Cupcake 6",
+        name: "Torta 6",
         img: "/media/redvelvetcake.jpg",
         id:6,
         description:"Torta",
@@ -45,7 +45,7 @@ export const data = [
         sabor:"vainilla",
     },
     {   
-        name: "Cupcake 7",
+        name: "Torta 7",
         img: "/media/tiramusi.jpg",
         id: 7,
         description:"Torta",

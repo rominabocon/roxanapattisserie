@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import "./Card.css"
 
 export const Card = ({img, description, price, sabor, id, name}) => {
+
+
+
     return (
 
     <div className="card mb-5" style={{width: "20rem"}}>
