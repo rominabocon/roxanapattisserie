@@ -1,16 +1,21 @@
-
-import { getCategoria } from '../../utils/getCategorias.jsx';
+import React from 'react'
 import {Card} from "../Card/Card.jsx"
-
 import "./ItemList.css"
+import {useGetItems} from "../../hooks/useGetItems.jsx"
 
-export const ItemList = ({description}) => {
-    const productos = getCategoria(description);
+export const ItemList = () => {
 
-
+    const {loading, productos} = useGetItems();
+    // const productos = getCategoria(description);
 
     return (
-        <div className="item-container">
+        <>
+        {
+            loading ? <div className="spinner-border" role="status"> 
+            <span className="visually-hidden">Loading...</span>
+            </div>
+            :
+            <div className="item-container">
             
             {productos.map((el) => {
                 return(
@@ -28,5 +33,8 @@ export const ItemList = ({description}) => {
                 })}
             
         </div>
+        }
+        
+        </>
     );
 };
