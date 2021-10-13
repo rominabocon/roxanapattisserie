@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import { useParams } from 'react-router'
 import { Link } from "react-router-dom";
 import { ItemContext } from '../../context/ItemContext';
@@ -9,9 +9,10 @@ import "./ItemDetail.css"
 export const ItemDetail = () => {
 
     const {id} = useParams();
-    const {loading, productos: item} = useGetItems(id)
+    const {loading, productos: item} = useGetItems(id,)
 
     const {carrito, setCarrito} = useContext (ItemContext);
+
 
     let path= '/';
 
@@ -23,14 +24,13 @@ export const ItemDetail = () => {
 
 
 
-
     const addItem = (cantidad) => {
         const itemConCantidad = {...item, cantidad};
         let cart = [];
 
-        let existCart = carrito.find (item=>item.id == id);
+        let existCart = carrito.find (item=>item.id === id);
         if(existCart) {
-            cart = carrito.map((item) => item.id == id ? {...item, cantidad: item.cantidad + cantidad} : item);
+            cart = carrito.map((item) => item.id === id ? {...item, cantidad: item.cantidad + cantidad} : item);
         }
         else {
             cart = [...carrito, itemConCantidad];
@@ -45,7 +45,7 @@ export const ItemDetail = () => {
             loading ? (
             <div className="d-flex justify-content-center">
                 <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...<span>
+                <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
             )

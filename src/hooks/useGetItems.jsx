@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {collection, onSnapshot} from '@firebase/firestore'
 import db from "../firebase/firebase.jsx"
 
@@ -15,7 +15,7 @@ export const useGetItems = (id = 0) => {
             id: item.id,
             }));    
         if(id===0) {
-            setProductos(filteredProducts);
+                setProductos(filteredProducts);
         }
         else {
             setProductos(filteredProducts.find(item => item.id === id))

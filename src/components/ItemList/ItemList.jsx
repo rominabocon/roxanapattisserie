@@ -6,7 +6,7 @@ import {useGetItems} from "../../hooks/useGetItems.jsx"
 export const ItemList = () => {
 
     const {loading, productos} = useGetItems();
-    // const productos = getCategoria(description);
+
 
     return (
         <>
