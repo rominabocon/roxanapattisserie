@@ -69,7 +69,8 @@ export const ItemDetail = () => {
             <Link className="btn btn-secondary mt-3" to={"/cart"}>Terminar Compra</Link>
             </div>
         </div>
-        )}
-          </>  
-    );
-};
+            )
+        }
+        </>  
+        )
+            }

@@ -3,10 +3,10 @@ import {Card} from "../Card/Card.jsx"
 import "./ItemList.css"
 import {useGetItems} from "../../hooks/useGetItems.jsx"
 
-export const ItemList = () => {
+export const ItemList = ({description}) => {
 
-    const {loading, productos} = useGetItems();
-
+    const {loading, productos} = useGetItems(0, description);
+    // const productos = getCategoria(description);
 
     return (
         <>
