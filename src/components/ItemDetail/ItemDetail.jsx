@@ -50,7 +50,8 @@ export const ItemDetail = () => {
             </div>
             )
             :
-            (<div className="contenedor">
+            (
+            <div className="contenedor">
             <div>
             <h1 className="fs-1 fw-light my-4">{item.description}</h1>
             <hr />
@@ -69,8 +70,7 @@ export const ItemDetail = () => {
             <Link className="btn btn-secondary mt-3" to={"/cart"}>Terminar Compra</Link>
             </div>
         </div>
-            )
-        }
+        )}
         </>  
-        )
-            }
+    );
+};

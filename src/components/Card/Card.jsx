@@ -4,10 +4,8 @@ import "./Card.css"
 
 export const Card = ({img, description, price, sabor, id, name}) => {
 
-
-
     return (
-
+        
     <div className="card mb-5" style={{width: "20rem"}}>
         <img src={img} className="card-img-top" alt={name}/>
         <div className="card-body">
@@ -17,5 +15,5 @@ export const Card = ({img, description, price, sabor, id, name}) => {
         <Link to={`/producto/${id}`} className="btn btn-primary fs-5">Ver Detalles</Link>
         </div>
     </div>
-    )
-}
+        );
+};
